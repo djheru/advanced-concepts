@@ -1,12 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common';
+import { COFFEES_DATA_SOURCE, CoffeesDataSource } from './coffees.module';
 import { CreateCoffeeDto } from './dto/create-coffee.dto';
 import { UpdateCoffeeDto } from './dto/update-coffee.dto';
-import { Coffee } from './entities/coffee.entity';
-
-export const COFFEES_DATA_SOURCE = Symbol('COFFEES_DATA_SOURCE');
-export interface CoffeesDataSource {
-  [index: number]: Coffee;
-}
 
 @Injectable()
 export class CoffeesService {
