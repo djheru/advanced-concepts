@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { COFFEES_DATA_SOURCE, CoffeesDataSource } from './coffees.module';
+import { COFFEES_DATA_SOURCE, CoffeesDataSource } from './coffees.datasource';
 import { CreateCoffeeDto } from './dto/create-coffee.dto';
 import { UpdateCoffeeDto } from './dto/update-coffee.dto';
 
