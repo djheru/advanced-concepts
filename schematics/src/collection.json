@@ -1,0 +1,9 @@
+{
+  "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "configurable-module": {
+      "description": "Generates a configurable module.",
+      "factory": "./configurable-module/index#generate"
+    }
+  }
+}
