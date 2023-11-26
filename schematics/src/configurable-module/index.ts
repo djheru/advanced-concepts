@@ -14,7 +14,7 @@ import {
 } from '@angular-devkit/schematics';
 // Ensure that we are using the same TypeScript version as the schematics
 import * as ts from '@schematics/angular/third_party/github.com/Microsoft/TypeScript/lib/typescript';
-import { insertImport } from '@schematics/angular/utility/ast-utils';
+import { findNodes, insertImport } from '@schematics/angular/utility/ast-utils';
 import { InsertChange } from '@schematics/angular/utility/change';
 interface ConfigurableModuleSchematicOptions {
   name: string;
@@ -46,8 +46,13 @@ function updateModuleFile(
       insertImportChange.toAdd,
     );
   }
+  const classNode = findNodes(source, ts.SyntaxKind.ClassDeclaration)[0];
+  updateRecorder.insertRight(
+    classNode.end - 2, // Right before the bracket
+    'extends ConfigurableModuleClass ',
+  );
+
   tree.commitUpdate(updateRecorder);
-  console.log(tree.readText(modulePath));
 }
 
 // You don't have to export the function as default. You can also have more than one rule factory

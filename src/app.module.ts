@@ -6,6 +6,7 @@ import { CronModule } from './cron/cron.module';
 import { FibonacciModule } from './fibonacci/fibonacci.module';
 import { HttpClientModule } from './http-client/http-client.module';
 import { SchedulerModule } from './scheduler/scheduler.module';
+import { RecipesModule } from './recipes/recipes.module';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { SchedulerModule } from './scheduler/scheduler.module';
     HttpClientModule.forRoot({
       baseUrl: 'http://localhost:3000',
     }),
+    RecipesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
