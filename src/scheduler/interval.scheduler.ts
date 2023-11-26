@@ -35,7 +35,6 @@ export class IntervalScheduler
       }
 
       const methodKeys = this.metadataScanner.getAllMethodNames(prototype);
-      console.log('methodKeys', methodKeys);
       // Get all the method names of the classes marked with the class decorator
       methodKeys.forEach((methodKey) => {
         // Find which methods have the method decorator
